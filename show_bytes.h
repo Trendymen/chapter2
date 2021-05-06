@@ -9,7 +9,7 @@ typedef unsigned char *byte_pointer;
 
 void show_bytes(byte_pointer start, size_t len) {
   size_t i;
-  for (i = 0; i < len; ++i) printf("[%lu]%#4.2x%c", i, start[i], i != len - 1 ? *" " : *"\n");
+  for (i = 0; i < len; ++i) printf("[%zu]%#4.2x%c", i, start[i], i != len - 1 ? *" " : *"\n");
 }
 
 void show_void(void *x) { show_bytes((byte_pointer) &x, sizeof(void *)); }
@@ -21,7 +21,7 @@ void show_double(double x) { show_bytes((byte_pointer) &x, sizeof(double)); }
 
 void show_all_type_bytes() {
   for (int i = 0; i < 10; i++) {
-    int val = 12345 + i;
+    int val = -257 + i;
     //0011 0000 0011 1001
     //2^13+2^12+2^5+2^4+2^3+1
     show_short((short) val);
